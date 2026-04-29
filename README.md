@@ -37,11 +37,12 @@ https://official.nba.com/nba-injury-report-2025-26-season/
  1. This dataset shows all players listed on injured reserved from 1951 to 2023. Data was used from 1990-2021 to match rest of project. This dataset is listed at the player and season level showing the date the player was initially put on the list , what the desciption of their injury was, and which team they were a part of.
 
  #### Lottery Data
+ https://basketball.realgm.com/nba/draft/lottery_results/2025
 
  1. This dataset shows the year of the draft, the team who originally was given that pick number, their odds of the #1 overall pick, their pre-draft pick position, the player selected, and which team actually made the pick. 
 
-## Pre-Processing Steps
-# Steps for PowerBI Dashboard
+# Pre-Processing Steps
+## Steps for PowerBI Dashboard
 
 1. Injury Report clean up needed due to Python code not perfectly reading PDF.
 + Normalization of team rows was needed, done using Find and Replace in Excel (ex. AtlantaHawks to Atlanta Hawks)
@@ -50,8 +51,9 @@ https://official.nba.com/nba-injury-report-2025-26-season/
 2. GameIDs were created on Injury Report, Schedule, and Box Score tables to join later in PowerBI
 3. Function created in excel to calculate team's record, column later unpivoted to separate wins/losses and home/visitor
 4. Teams reference table was added in order account for variances in datasets using team abbreviations or full team names
+5. Return date calculated on 1990-2021 injuries table (IR). This was calculated by Excel XLOOKUP in BoxScores to find the date the player returned to game action post injury date
 
-# Steps for Python models
+## Steps for Python models
 1. Appending Box Score Data
 + Exported initial files from Kaggle into one zip file.
 + Unzipped the file and wrote code to read the file path, looking for only the file names that ended in "_Basic". 
