@@ -157,8 +157,14 @@ https://official.nba.com/nba-injury-report-2025-26-season/
 
 # Instructions for a 3rd part to replicate this analysis
 
-## For Powerbi (Nathan)
-1. x
+## For PowerBI
+1. Stats and Teams tables merged via merge queries on Abbreviation, exapnded to include full team name. Rows filtered that were blank (ex. TOT for players who played on multiple teams that season. Split stats remained)
+2. Player Name column created on Stats table transform original player name to standard characters and remove accents for consistency purposes
+3. Season column required adjustment on schedule table for consistency purposes for 2021-2026. Ex("2021-22" to "2021-2022").
+4. Season column added to Old Injuries table to prep for merge with New Injury Report
+5. Nested left outer join for Schedule and Old Injuries table on Season column to get game by game injury log
+6. Injuries combined table created with Old Injuries Updated and New Injury Report tables to get full game by game injury report from 1990-2026.
+7. Calculated values for End of Season Record and Playoff Record were created to allow for those records to be reflected based on which season/team were selected on the slicer
 
 
 ## For Regressions in Python
