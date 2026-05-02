@@ -141,10 +141,17 @@ https://official.nba.com/nba-injury-report-2025-26-season/
 
 # Modeling Decisions
 ## Data Structure
-1. For visualization (Nathan)
-+
+1. For visualization, active table relationships are as followed:
++ BoxScores_1 [many to 1] Schedule on GameID
++ Injuries Combined [many to 1] Schedule on GameID
++ New Injury Report [many to 1] Schedule on GameID
++ Old Injuries [many to many] Teams on Team Name
++ Old Injuries Updated [many to 1] Schedule on GameID
++ Schedule [many to 1] Date Table on Date
++ Schedule [many to many] Stats on Season
+
   
-2. For Regressions
+3. For Regressions
 + Since we were load management is typically done by certain teams we felt aggregating the data at the team and season level would be the best way to use the data for a regression model
 + Using the schedule data we got team statistics that were not player specific such as total, regular season, playoff, and play in games. To then use these values as denominators in many of our calculations.
 + The box score data was used to get player specific data, define sub categories such as stars, every day starters, bench, and starters. Using this data we were able to aggregate statistics by sub category to then create ratios by combining the overall team data with the player specific data.
@@ -164,7 +171,8 @@ https://official.nba.com/nba-injury-report-2025-26-season/
 4. Season column added to Old Injuries table to prep for merge with New Injury Report
 5. Nested left outer join for Schedule and Old Injuries table on Season column to get game by game injury log
 6. Injuries combined table created with Old Injuries Updated and New Injury Report tables to get full game by game injury report from 1990-2026.
-7. Calculated values for End of Season Record and Playoff Record were created to allow for those records to be reflected based on which season/team were selected on the slicer
+7. A separate date table created to create a Season Month column to create monthly charts in season order. (October-September)
+8. Calculated values for End of Season Record and Playoff Record were created to allow for those records to be reflected based on which season/team were selected on the slicer
 
 
 ## For Regressions in Python
