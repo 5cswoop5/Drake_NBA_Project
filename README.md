@@ -3,6 +3,7 @@ Title: "Load Management in the NBA: Does It Work?"
 Authors: "Nathan Catalano and Christian Swoop"
 Date: "5/03/2026"
 Output: "Python File"
+
 https://github.com/5cswoop5/Drake_NBA_Project
 ---
 
