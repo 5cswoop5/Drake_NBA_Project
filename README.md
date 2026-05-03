@@ -161,7 +161,7 @@ https://official.nba.com/nba-injury-report-2025-26-season/
 + Schedule [many to many] Stats on Season
 
   
-3. For Regressions
+2. For Regressions
 + Since load management is typically done by certain teams, we felt aggregating the data at the team and season level would be the best way to use the data for a regression model
 + Using the schedule data, we got team statistics that were not player specific such as total, regular season, playoff, and play in games. To then use these values as denominators in many of our calculations.
 + The box score data was used to get player specific data, define subcategories such as stars, everyday starters, bench, and starters. Using this data, we were able to aggregate statistics by sub-category to then create ratios by combining the overall team data with the player specific data.
